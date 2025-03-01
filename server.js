@@ -2,7 +2,6 @@ require("dotenv").config(); // Load environment variables from .env
 const express = require("express");
 const cors = require("cors");
 const fetch = require("node-fetch");
-const port = process.env.PORT || 4000;
 
 const app = express();
 app.use(express.json()); // Parse JSON requests
@@ -40,3 +39,6 @@ app.post("/send", async (req, res) => {
         res.status(500).json({ error: "Internal server error" });
     }
 });
+
+// Start the server on port 3000
+app.listen(3000, () => console.log("Proxy running on http://localhost:3000"));
